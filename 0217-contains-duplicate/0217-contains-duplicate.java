@@ -1,3 +1,5 @@
+import java.util.HashSet;
+
 class Solution {
     public boolean containsDuplicate(int[] nums) {
         // // boolean flag = false;
@@ -22,14 +24,26 @@ class Solution {
         // return false;
 
 
-        Arrays.sort(nums);
+        // Arrays.sort(nums);
 
-        for(int i = 0 ; i < nums.length - 1 ; i++){
-            if(nums[i] == nums[i+1]){
+        // for(int i = 0 ; i < nums.length - 1 ; i++){
+        //     if(nums[i] == nums[i+1]){
+        //         return true;
+        //     }
+        // }
+        // return false;
+
+        HashSet <Integer> set = new HashSet<>();
+
+        for(int val : nums){
+            if(set.contains(val)){
                 return true;
+            }else{
+                set.add(val);
             }
         }
-        return false;
 
+
+        return false;
     }
 }
